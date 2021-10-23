@@ -5,10 +5,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameObject respawnBox;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -16,4 +17,8 @@ public class GameManager : MonoBehaviour
     {
         //if players hit the respawn box, then respawn point
     }
+
+    
 }
+
+

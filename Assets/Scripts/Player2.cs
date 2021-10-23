@@ -28,6 +28,11 @@ public class Player2 : MonoBehaviour
         {
             rb.AddForce(new Vector3(0f,0f,speed *-1));
         }
+
+        else if(Input.GetKey(KeyCode.RightControl))
+        {
+            rb.AddForce(new Vector3(0f,0f,speed *1));
+        }
     }
     
 }
