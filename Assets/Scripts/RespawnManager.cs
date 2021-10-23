@@ -19,19 +19,19 @@ public class RespawnManager : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (gameObject.tag == "Player1")
+        if (other.tag == "Player1")
         {
             player1.position = p1Respawn.position; 
             print("respawn");
         }
 
-        else if (gameObject.tag == "Player2")
+        else if (other.tag == "Player2")
         {
             player2.position = p2Respawn.position; 
             print("respawn");
         }
 
-        else if (gameObject.tag == "Ball")
+        else if (other.tag == "Ball")
         {
             ball.position = ballRespawn.position; 
             print("respawn");

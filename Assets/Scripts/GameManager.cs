@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public GameObject respawnBox;
+    public float player1Points, player2Points;
     
     // Start is called before the first frame update
     void Start()
