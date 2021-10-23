@@ -1163,6 +1163,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 01d34168e2f0d4445919a401c39bb206, type: 3}
   m_PrefabInstance: {fileID: 1087136581}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1087136587
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087136582}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 280c8d7e18288bd43af23be2eab38b3d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1101383792
 GameObject:
   m_ObjectHideFlags: 0
@@ -2402,11 +2421,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 01d34168e2f0d4445919a401c39bb206, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -89.98021
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 01d34168e2f0d4445919a401c39bb206, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 01d34168e2f0d4445919a401c39bb206, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -2479,6 +2498,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 01d34168e2f0d4445919a401c39bb206, type: 3}
   m_PrefabInstance: {fileID: 2133539931}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &2133539937
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133539932}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3e905e522d99b804086e0a906b99e746, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2144330982
 GameObject:
   m_ObjectHideFlags: 0
