@@ -13,12 +13,15 @@ public class GameManager : MonoBehaviour
     public float startGametimer = 1f;
     public bool gameStart = false;
     public bool inRound = false;
+    public bool isChoosing = false;
     public TextMeshProUGUI player1PointsDisplay, player2PointsDisplay;
     public bool player1Wins = false;
     public bool player2Wins = false;
 
     public bool player1Correct = false;
     public bool player2Correct = false;
+    public bool player1Turn = false;
+    public bool player2Turn = false;
     
     [Header("Math Vars")]
     [SerializeField]
@@ -32,11 +35,14 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         instance = this;
+        player1 = GameObject.FindGameObjectWithTag("Player1");
+        player2 = GameObject.FindGameObjectWithTag("Player2");
         //math = gameObject.GetComponent<Math>();
         fadeController?.GetComponent<Animator>().SetBool("canFadeIn", true);
         StartCoroutine(GameStart());
         player1Points = 0f;
         player2Points = 0f;
+        player1Turn = true;
         Debug.Log(player1Points);
     }
 
@@ -65,7 +71,26 @@ public class GameManager : MonoBehaviour
             answerChoice2.text = gameMath.myanswerChoice2;
             answer = gameMath.correctAnswer; 
             inRound = false;
+            isChoosing = true;
         }
+
+        if(isChoosing)
+        {
+            if(player1Turn)
+            {                
+                if(player1?.GetComponent<Player1>().player1Choice == answer)
+                {
+                    //player1 win round
+                }
+
+                else if(player1?.GetComponent<Player1>().player1Choice != answer)
+                {
+                    //player2 loses 
+                }
+            }
+            
+        }
+        
 
     }
 
