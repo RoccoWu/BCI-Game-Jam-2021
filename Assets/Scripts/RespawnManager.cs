@@ -75,6 +75,7 @@ public class RespawnManager : MonoBehaviour
         respawnTimerP1 = 0;
         p1canRespawn = true;
         p2canRespawn = true;
+        GameManager.instance.inRound = true;
     }
 
     IEnumerator respawnDelayPlayer2()
@@ -88,5 +89,6 @@ public class RespawnManager : MonoBehaviour
         respawnTimerP2 = 0;
         p1canRespawn = true;
         p2canRespawn = true;
+        GameManager.instance.inRound = true;
     }
 }
