@@ -10,8 +10,8 @@ public class RespawnManager : MonoBehaviour
     public Transform p1Respawn, p2Respawn, ballRespawn;
     private float respawnTimerP1 = 1.5f;
     private float respawnTimerP2 = 1.5f;
-    public bool p1canRespawn = true;
-    public bool p2canRespawn = true;
+    public bool p1canRespawn = false;
+    public bool p2canRespawn = false;
     // Start is called before the first frame update
     void Start()
     {
