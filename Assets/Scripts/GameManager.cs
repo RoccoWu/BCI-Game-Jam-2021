@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -20,6 +21,9 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         StartCoroutine(GameStart());
+        player1Points = 0f;
+        player2Points = 0f;
+        Debug.Log(player1Points);
     }
 
     // Update is called once per frame
@@ -48,5 +52,3 @@ public class GameManager : MonoBehaviour
     }
 
 }
-
-

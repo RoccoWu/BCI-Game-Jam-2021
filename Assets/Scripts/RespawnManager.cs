@@ -21,6 +21,7 @@ public class RespawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(p1canRespawn);
         if (p1canRespawn)
         {
             player1.position = p1Respawn.position;
