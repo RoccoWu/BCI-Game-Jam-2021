@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RespawnManager : MonoBehaviour
 {
+
+    public static RespawnManager instance;
     public Transform player1, player2, ball;
     public Transform p1Respawn, p2Respawn, ballRespawn;
     private float respawnTimerP1 = 1.5f;
@@ -22,6 +24,7 @@ public class RespawnManager : MonoBehaviour
         if (p1canRespawn)
         {
             player1.position = p1Respawn.position;
+            GameManager.instance.player2Points++;
             p1canRespawn = false;
             print("respawn");
         }
@@ -29,6 +32,7 @@ public class RespawnManager : MonoBehaviour
         if (p2canRespawn)
         {
             player2.position = p2Respawn.position;
+            GameManager.instance.player1Points++;
             p2canRespawn = false;
             print("respawn");
         }

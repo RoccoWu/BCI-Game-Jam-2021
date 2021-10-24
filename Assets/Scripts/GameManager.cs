@@ -1,13 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+
+    public static GameManager instance;
     public GameObject respawnBox, player1, player2;
     public float player1Points, player2Points;
     public float startGametimer = 1f;
     public bool gameStart = false;
+    public TextMeshProUGUI player1PointsDisplay, player2PointsDisplay;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +24,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if players hit the respawn box, then respawn point
+        player1PointsDisplay.text = player1Points.ToString();
+        player2PointsDisplay.text = player2Points.ToString();
     }
 
     private void startGame()
