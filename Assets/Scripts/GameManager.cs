@@ -12,12 +12,19 @@ public class GameManager : MonoBehaviour
     public float player1Points, player2Points;
     public float startGametimer = 1f;
     public bool gameStart = false;
+    public bool inRound = false;
     public TextMeshProUGUI player1PointsDisplay, player2PointsDisplay;
     public bool player1Wins = false;
     public bool player2Wins = false;
 
     public bool player1Correct = false;
     public bool player2Correct = false;
+    
+    [Header("Math Vars")]
+    [SerializeField]
+    private GameMath gameMath;
+    public TextMeshProUGUI mathQuestion, answerChoice1, answerChoice2;
+    private string answer = "";
 
 
 
@@ -25,6 +32,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         instance = this;
+        //math = gameObject.GetComponent<Math>();
         fadeController?.GetComponent<Animator>().SetBool("canFadeIn", true);
         StartCoroutine(GameStart());
         player1Points = 0f;
@@ -49,6 +57,16 @@ public class GameManager : MonoBehaviour
         }
 
 
+        if(inRound)
+        {
+            gameMath.Main();
+            mathQuestion.text = gameMath.myEquation;
+            answerChoice1.text = gameMath.myanswerChoice1;
+            answerChoice2.text = gameMath.myanswerChoice2;
+            answer = gameMath.correctAnswer; 
+            inRound = false;
+        }
+
     }
 
     private void startGame()
@@ -65,6 +83,7 @@ public class GameManager : MonoBehaviour
             startGametimer--;
         }
         startGametimer = 0;
+        inRound = true;
         Debug.Log("timer up");
         startGame();
     }

@@ -473,7 +473,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000015258789}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &151741848
@@ -3677,7 +3677,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: Equation
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d1a1ce280d615a046b2067c791086a43, type: 2}
   m_sharedMaterial: {fileID: 5577835309023788979, guid: d1a1ce280d615a046b2067c791086a43, type: 2}
@@ -4391,6 +4391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1998086379}
   - component: {fileID: 1998086378}
+  - component: {fileID: 1998086380}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4419,12 +4420,17 @@ MonoBehaviour:
   player2Points: 0
   startGametimer: 1
   gameStart: 0
+  inRound: 0
   player1PointsDisplay: {fileID: 1907452600}
   player2PointsDisplay: {fileID: 632369518}
   player1Wins: 0
   player2Wins: 0
   player1Correct: 0
   player2Correct: 0
+  gameMath: {fileID: 1998086380}
+  mathQuestion: {fileID: 1760862214}
+  answerChoice1: {fileID: 340701172}
+  answerChoice2: {fileID: 1068802308}
 --- !u!4 &1998086379
 Transform:
   m_ObjectHideFlags: 0
@@ -4439,6 +4445,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1998086380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998086377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 720afe03a00143140ac0f3187cddef60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myEquation: 
+  myanswerChoice1: 
+  myanswerChoice2: 
+  correctAnswer: 
 --- !u!1 &2021770072
 GameObject:
   m_ObjectHideFlags: 0
