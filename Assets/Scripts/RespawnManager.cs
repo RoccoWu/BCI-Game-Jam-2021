@@ -8,8 +8,8 @@ public class RespawnManager : MonoBehaviour
     public static RespawnManager instance;
     public Transform player1, player2, ball;
     public Transform p1Respawn, p2Respawn, ballRespawn;
-    private float respawnTimerP1 = 1.5f;
-    private float respawnTimerP2 = 1.5f;
+    private float respawnTimerP1 = 4f;
+    private float respawnTimerP2 = 4f;
     public bool p1canRespawn = false;
     public bool p2canRespawn = false;
     // Start is called before the first frame update
@@ -20,10 +20,13 @@ public class RespawnManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {       
+    {
         if (p1canRespawn)
         {
-            player1.position = p1Respawn.position;
+            player1.position = p1Respawn.position;    
+            GameManager.instance.fadeController.GetComponent<Animator>().SetBool("canFadeIn",true);     
+            player1.GetComponent<Animator>().SetBool("canIdle", true);   
+            player2.GetComponent<Animator>().SetBool("canIdle", true); 
             GameManager.instance.player2Points++;
             p1canRespawn = false;
             print("respawn");
@@ -35,7 +38,10 @@ public class RespawnManager : MonoBehaviour
 
         if (p2canRespawn)
         {
-            player2.position = p2Respawn.position;
+            player2.position = p2Respawn.position;    
+            GameManager.instance.fadeController.GetComponent<Animator>().SetBool("canFadeIn",true);  
+            player1.GetComponent<Animator>().SetBool("canIdle", true);   
+            player2.GetComponent<Animator>().SetBool("canIdle", true);       
             GameManager.instance.player1Points++;
             p2canRespawn = false;
             print("respawn");
@@ -65,8 +71,10 @@ public class RespawnManager : MonoBehaviour
             yield return new WaitForSeconds(respawnTimerP1);
             respawnTimerP1--;
         }
+        GameManager.instance.fadeController.GetComponent<Animator>().SetBool("canFadeIn", false);
         respawnTimerP1 = 0;
         p1canRespawn = true;
+        p2canRespawn = true;
     }
 
     IEnumerator respawnDelayPlayer2()
@@ -76,7 +84,9 @@ public class RespawnManager : MonoBehaviour
             yield return new WaitForSeconds(respawnTimerP2);
             respawnTimerP2--;
         }
+        GameManager.instance.fadeController.GetComponent<Animator>().SetBool("canFadeIn",false);
         respawnTimerP2 = 0;
+        p1canRespawn = true;
         p2canRespawn = true;
     }
 }
