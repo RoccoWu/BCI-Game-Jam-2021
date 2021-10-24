@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public float startGametimer = 1f;
     public bool gameStart = false;
     public TextMeshProUGUI player1PointsDisplay, player2PointsDisplay;
+    public bool player1Wins = false;
+    public bool player2Wins = false;
 
 
 
@@ -31,6 +33,16 @@ public class GameManager : MonoBehaviour
     {
         player1PointsDisplay.text = player1Points.ToString();
         player2PointsDisplay.text = player2Points.ToString();
+
+        if(player1Wins)
+        {
+            //win state for player 1 
+        }
+
+        if(player2Wins)
+        {
+            //win state for player 2
+        }
     }
 
     private void startGame()

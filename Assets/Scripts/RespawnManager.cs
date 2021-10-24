@@ -20,14 +20,17 @@ public class RespawnManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        Debug.Log(p1canRespawn);
+    {       
         if (p1canRespawn)
         {
             player1.position = p1Respawn.position;
             GameManager.instance.player2Points++;
             p1canRespawn = false;
             print("respawn");
+            if (GameManager.instance.player2Points >= 3)
+            {
+                GameManager.instance.player2Wins = true;
+            }
         }
 
         if (p2canRespawn)
@@ -36,6 +39,10 @@ public class RespawnManager : MonoBehaviour
             GameManager.instance.player1Points++;
             p2canRespawn = false;
             print("respawn");
+            if (GameManager.instance.player1Points >= 3)
+            {
+                GameManager.instance.player1Wins = true;
+            }
         }
     }
     private void OnTriggerEnter(Collider other)
