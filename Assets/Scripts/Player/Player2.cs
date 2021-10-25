@@ -6,7 +6,7 @@ public class Player2 : MonoBehaviour
 {
     private Player2 instance;
      public int speed;
-      public string player2Choice = "";
+      public string player2Choice = null;
 
     [SerializeField]
     private Rigidbody rb;

@@ -93,6 +93,7 @@ public class GameManager : MonoBehaviour
 
         if (isChoosing)
         {
+            print("choosing");
             if (player1Turn)
             {
                 if (player1?.GetComponent<Player1>().player1Choice == answer)

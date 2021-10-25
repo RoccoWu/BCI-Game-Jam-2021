@@ -16,9 +16,9 @@ public class CameraFollow : MonoBehaviour
     {
         if (GameManager.instance.isGameScene())
         {
-            Vector3 interpolated = Vector3.Lerp(player1.position, player2.position, 0.5f);
+            Vector3 interpolated = Vector3.Lerp(new Vector2(player1.position.x, 0), new Vector2(player2.position.x, 0), 0.5f);
             transform.position = new Vector3(
-                transform.position.x, transform.position.y, interpolated.z);
+                transform.position.x, 3.3f, 3.64f);
 
             Vector3 desiredPosition = interpolated + offset;
             if(target)
@@ -26,9 +26,9 @@ public class CameraFollow : MonoBehaviour
                 desiredPosition = target.position + offset;
             }
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
-            transform.position = smoothedPosition +offset;
+            transform.position = smoothedPosition + offset;
 
-            transform.LookAt(desiredPosition);
+            //transform.LookAt(desiredPosition);
         }
     }
 
