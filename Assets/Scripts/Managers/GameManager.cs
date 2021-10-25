@@ -98,14 +98,14 @@ public class GameManager : MonoBehaviour
                 if (player1?.GetComponent<Player1>().player1Choice == answer)
                 {
                     //player1 win round
-                    player1.GetComponent<Rigidbody>().AddForce(new Vector3(0f,0f,200f));
+                    player1.GetComponent<Rigidbody>().AddForce(new Vector3(0f,0f,2000f));
                     print("Player1 win");
                 }
 
                 else if (player1?.GetComponent<Player1>().player1Choice != answer)
                 {
                     //player1 loses 
-                    player1.GetComponent<Rigidbody>().AddForce(new Vector3(0f,0f,-200f));
+                    player1.GetComponent<Rigidbody>().AddForce(new Vector3(0f,0f,-2000f));
                     print("Player1 loses");
                 }
                 isChoosing = false;
@@ -116,14 +116,14 @@ public class GameManager : MonoBehaviour
                 if (player2?.GetComponent<Player2>().player2Choice == answer)
                 {
                     //player2 win round
-                    player2.GetComponent<Rigidbody>().AddForce(new Vector3(0f,0f, 200f));
+                    player2.GetComponent<Rigidbody>().AddForce(new Vector3(0f,0f, 2000f));
                     print("Player2 win");
                 }
 
                 else if (player2?.GetComponent<Player2>().player2Choice != answer)
                 {
                     //player2 loses 
-                    player2.GetComponent<Rigidbody>().AddForce(new Vector3(0f,0f, -200f));
+                    player2.GetComponent<Rigidbody>().AddForce(new Vector3(0f,0f, -2000f));
                     print("Player2 loses");
                 }
                 isChoosing = false;
