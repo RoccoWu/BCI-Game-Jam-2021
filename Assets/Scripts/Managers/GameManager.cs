@@ -68,9 +68,6 @@ public class GameManager : MonoBehaviour
             player2PointsDisplay.text = player2Points.ToString();
         }
 
-
-
-
         if (player1Wins)
         {
             //win state for player 1 

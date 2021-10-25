@@ -34,6 +34,7 @@ public class RespawnManager : MonoBehaviour
             {
                 GameManager.instance.player2Wins = true;
             }
+            GameManager.instance.inRound = true;
         }
 
         if (p2canRespawn)
@@ -49,6 +50,7 @@ public class RespawnManager : MonoBehaviour
             {
                 GameManager.instance.player1Wins = true;
             }
+            GameManager.instance.inRound = true;
         }
     }
     private void OnTriggerEnter(Collider other)
