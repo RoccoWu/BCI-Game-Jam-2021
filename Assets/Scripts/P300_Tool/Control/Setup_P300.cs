@@ -49,7 +49,7 @@ public class Setup_P300 : MonoBehaviour
         double startX       = p300_Controller.startX;       //Initial position of X for drawing in the objects
         double startY       = p300_Controller.startY;       //Initial position of Y for drawing in the objects
         float startZ        = p300_Controller.startZ;        //Initial position of Z for drawing in the objects
-        double distanceX    = p300_Controller.distanceX;    //Distance between objects in X-plane
+        double distanceZ    = p300_Controller.distanceZ;    //Distance between objects in X-plane
         double distanceY    = p300_Controller.distanceY;
 
 
@@ -59,9 +59,9 @@ public class Setup_P300 : MonoBehaviour
 
         /* Dynamic Matrix Setup */
         int object_counter = 0;
-        for (int y = numRows - 1; y > -1; y--)
+        for (int z = 0; z < numColumns; z++)
         {
-            for (int x = 0; x < numColumns; x++)
+            for (int y = 0; y < numRows; y++)
             {
                 //Instantiating prefabs
                 GameObject new_obj = Instantiate(myObject);
@@ -76,8 +76,10 @@ public class Setup_P300 : MonoBehaviour
                 //Adding to Parent GameObject
                 new_obj.transform.parent = objects.transform;
 
+                Debug.Log(((float)startX).ToString() + "," + ((float)((y + startY) * distanceY)).ToString() + "," + ((float)((z + startZ) * distanceZ)).ToString());
+
                 //Setting position of object
-                new_obj.transform.position = new Vector3((float)((x + startX) * distanceX), (float)((y + startY) * distanceY), startZ);
+                new_obj.transform.position = new Vector3((float)startX, (float)(startY + (y * distanceY)), (float)(startZ + (z * distanceZ)));
 
                 //Activating objects
                 new_obj.SetActive(true);
@@ -89,22 +91,22 @@ public class Setup_P300 : MonoBehaviour
         p300_Controller.object_list = objectList;
 
         //Position Camera to the centre of the objects
-        float cameraX = (float)((((objectList[numColumns - 1].transform.position.x) - (objectList[0].transform.position.x)) / 2) + (startX * 2));
-        float cameraY = (float)((((objectList[0].transform.position.y) - (objectList[object_counter - 1].transform.position.y)) / 2) + (startY * 2));
-        float cameraSize;
-        if (numRows > numColumns)
-        {
-            cameraSize = numRows;
-        }
-        else
-        {
-            cameraSize = numColumns;
-        }
+        //float cameraX = (float)((((objectList[numColumns - 1].transform.position.x) - (objectList[0].transform.position.x)) / 2) + (startX * 2));
+        //float cameraY = (float)((((objectList[0].transform.position.y) - (objectList[object_counter - 1].transform.position.y)) / 2) + (startY * 2));
+        //float cameraSize;
+        //if (numRows > numColumns)
+        //{
+        //    cameraSize = numRows;
+        //}
+        //else
+        //{
+        //    cameraSize = numColumns;
+        //}
 
 
-        GameObject.Find("Main Camera").transform.position = new Vector3(cameraX, cameraY, -10f + startZ);
-        GameObject.Find("Main Camera").GetComponent<Camera>().orthographicSize = cameraSize;
-        print("Camera Position: X: " + (cameraX) + " Y: " + (cameraY) + " Z: " + -10f);
+        //GameObject.Find("Main Camera").transform.position = new Vector3(cameraX, cameraY, -10f + startZ);
+        //GameObject.Find("Main Camera").GetComponent<Camera>().orthographicSize = cameraSize;
+        //print("Camera Position: X: " + (cameraX) + " Y: " + (cameraY) + " Z: " + -10f);
 
         //Setting up object matrix to be used during RC Flashes
         for (int y = 0; y < numRows; y++)

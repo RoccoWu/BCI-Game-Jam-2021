@@ -55,6 +55,7 @@ public class P300_Controller : MonoBehaviour
     public float startZ;        //Initial position of Z for drawing in the objects
     public double distanceX;    //Distance between objects in X-plane
     public double distanceY;    //Distance between objects in Y-Plane
+    public double distanceZ;    //Distance between objects in Y-Plane
     public GameObject myObject; //Previously 'myCube'. Object type that will be flashing. Default is a cube.
     public Resolution[] resol;  //Resolution of the screen
     public int numRows;         //Initial number of rows to use
@@ -220,7 +221,9 @@ public class P300_Controller : MonoBehaviour
     /* Checks to see if given values are valid */
     public bool CheckEmpty()
     {
-        if (myObject == null || distanceX <= 0 || distanceY <= 0 || numRows <= 0 || numColumns <= 0)
+        return false;
+
+        if (myObject == null || distanceZ != 0 || distanceY != 0 || numRows <= 0 || numColumns <= 0)
         {
             return true;
         }
