@@ -20,19 +20,18 @@ public class Player1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Keypad1))
-        {
-            player1Choice = GameManager.instance.answerChoice1.text;
-            GameManager.instance.player1Chosen = true;
-            Debug.Log("Press 1");
-        }
+      if(GameManager.instance.player1Turn)      
+          //if player one presses a , they select answerchoice 1
 
-        else if (Input.GetKey(KeyCode.Keypad2))
-        {
-            player1Choice = GameManager.instance.answerChoice2.text;
-            GameManager.instance.player1Chosen = true;
-            Debug.Log("Press 2");
-        }
+          if(Input.GetKey(KeyCode.Alpha1))
+          {
+             player1Choice = GameManager.instance.answerChoice1.text; 
+          }
+
+          else if(Input.GetKey(KeyCode.Alpha2))
+          {
+             player1Choice = GameManager.instance.answerChoice2.text; 
+          }    
     }
 
     void FixedUpdate()

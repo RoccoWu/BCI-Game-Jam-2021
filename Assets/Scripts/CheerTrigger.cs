@@ -25,7 +25,7 @@ public class CheerTrigger : MonoBehaviour
         }
 
         else if(other.CompareTag("Player2"))
-        {
+        {           
             player1.GetComponent<Animator>().SetTrigger("wonRound");
         }
     }

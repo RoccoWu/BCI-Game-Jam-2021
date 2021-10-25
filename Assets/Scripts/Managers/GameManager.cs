@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public GameObject respawnBox, player1, player2, fadeController, cheerTrigger;
     public float player1Points, player2Points;
     public float startGametimer = 1f;
+    public float fallTimer = 1f;
+    public float launchPower;
     public bool gameStart = false;
     public bool inRound = false;
     public bool isChoosing = false;
@@ -23,8 +25,6 @@ public class GameManager : MonoBehaviour
     public bool player2Correct = false;
     public bool player1Turn = false;
     public bool player2Turn = false;
-    public bool player1Chosen = false;
-    public bool player2Chosen = false;
 
     [Header("Math Vars")]
     [SerializeField]
@@ -98,37 +98,41 @@ public class GameManager : MonoBehaviour
             print("choosing");
             if (player1Turn)
             {
-                inRound = true;
-                if (player1Chosen && player1?.GetComponent<Player1>().player1Choice == answer)
+                Player1 player1Component = player1?.GetComponent<Player1>();
+                if(player1Component
+                    && !string.IsNullOrEmpty(player1Component.player1Choice))
                 {
-                    //player1 win round
-                    player1.GetComponent<Rigidbody>().AddForce(new Vector3(0f,0f,2000f));
-                    print("Player1 win");
+                    if(player1Component.player1Choice == answer)
+                    {
+                        player2.GetComponent<Rigidbody>().AddForce(
+                            new Vector3(0f,0f,-launchPower), ForceMode.Impulse);
+                        print("Player1 win");
+                    }
+                    else
+                    {
+                        //player1 loses 
+                        player1.GetComponent<Rigidbody>().AddForce(
+                            new Vector3(0f,0f,launchPower), ForceMode.Impulse);
+                        print("Player1 loses");
+                    }
                 }
-
-                else if (player1Chosen && player1?.GetComponent<Player1>().player1Choice != answer)
-                {
-                    //player1 loses 
-                    player1.GetComponent<Rigidbody>().AddForce(new Vector3(0f,0f,-2000f));
-                    print("Player1 loses");
-                }
-               // isChoosing = false;
             }
 
             else if (player2Turn)
             {
-                inRound = true;
-                if ( player2Chosen && player2?.GetComponent<Player2>().player2Choice == answer)
+                if (player2?.GetComponent<Player2>().player2Choice == answer)
                 {
                     //player2 win round
-                    player2.GetComponent<Rigidbody>().AddForce(new Vector3(0f,0f, 2000f));
+                    player1.GetComponent<Rigidbody>().AddForce(
+                        new Vector3(0f,0f, launchPower), ForceMode.Impulse);
                     print("Player2 win");
                 }
 
-                else if (player2Chosen && player2?.GetComponent<Player2>().player2Choice != answer)
+                else if (player2?.GetComponent<Player2>().player2Choice != answer)
                 {
                     //player2 loses 
-                    player2.GetComponent<Rigidbody>().AddForce(new Vector3(0f,0f, -2000f));
+                    player2.GetComponent<Rigidbody>().AddForce(
+                        new Vector3(0f,0f, -launchPower), ForceMode.Impulse);
                     print("Player2 loses");
                 }
                 //isChoosing = false;
@@ -159,4 +163,14 @@ public class GameManager : MonoBehaviour
         startGame();
     }
 
+    IEnumerator FallTimer()
+    {
+        while (fallTimer > 0)
+        {
+            yield return new WaitForSeconds(fallTimer);
+            fallTimer--;
+        }
+        fallTimer = 0;
+        isChoosing = false;
+    }
 }
