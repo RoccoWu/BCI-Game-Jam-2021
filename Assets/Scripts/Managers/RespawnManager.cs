@@ -8,8 +8,8 @@ public class RespawnManager : MonoBehaviour
     public static RespawnManager instance;
     public Transform player1, player2, ball;
     public Transform p1Respawn, p2Respawn, ballRespawn;
-    private float respawnTimerP1 = 2f;
-    private float respawnTimerP2 = 2f;
+    private float respawnTimerP1 = 3f;
+    private float respawnTimerP2 = 3f;
     public bool p1canRespawn = false;
     public bool p2canRespawn = false;
     // Start is called before the first frame update
@@ -56,11 +56,13 @@ public class RespawnManager : MonoBehaviour
         if (other.tag == "Player1")
         {
             StartCoroutine(respawnDelayPlayer1());
+            GameManager.instance.player2Chosen = false;
         }
 
         else if (other.tag == "Player2")
         {
             StartCoroutine(respawnDelayPlayer2());
+            GameManager.instance.player1Chosen = false;
         }
     }
 
@@ -76,7 +78,7 @@ public class RespawnManager : MonoBehaviour
         p1canRespawn = true;
         p2canRespawn = true;
         GameManager.instance.inRound = true;
-       // player1.instance.player1Choice = null;
+        player1.gameObject.GetComponent<Player1>().player1Choice = null;
     }
 
     IEnumerator respawnDelayPlayer2()
@@ -90,8 +92,7 @@ public class RespawnManager : MonoBehaviour
         respawnTimerP2 = 0;
         p1canRespawn = true;
         p2canRespawn = true;
-        Debug.Log("SHEEESH2");
         GameManager.instance.inRound = true;
-       // player2.instance.player1Choice = null;
+        player2.gameObject.GetComponent<Player2>().player2Choice = null;
     }
 }

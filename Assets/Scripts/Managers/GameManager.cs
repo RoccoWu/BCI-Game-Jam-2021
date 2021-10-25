@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     public bool player2Correct = false;
     public bool player1Turn = false;
     public bool player2Turn = false;
+    public bool player1Chosen = false;
+    public bool player2Chosen = false;
 
     [Header("Math Vars")]
     [SerializeField]
@@ -96,14 +98,14 @@ public class GameManager : MonoBehaviour
             print("choosing");
             if (player1Turn)
             {
-                if (player1?.GetComponent<Player1>().player1Choice == answer)
+                if (player1Chosen && player1?.GetComponent<Player1>().player1Choice == answer)
                 {
                     //player1 win round
                     player1.GetComponent<Rigidbody>().AddForce(new Vector3(0f,0f,2000f));
                     print("Player1 win");
                 }
 
-                else if (player1?.GetComponent<Player1>().player1Choice != answer)
+                else if (player1Chosen && player1?.GetComponent<Player1>().player1Choice != answer)
                 {
                     //player1 loses 
                     player1.GetComponent<Rigidbody>().AddForce(new Vector3(0f,0f,-2000f));
@@ -114,14 +116,14 @@ public class GameManager : MonoBehaviour
 
             else if (player2Turn)
             {
-                if (player2?.GetComponent<Player2>().player2Choice == answer)
+                if ( player2Chosen && player2?.GetComponent<Player2>().player2Choice == answer)
                 {
                     //player2 win round
                     player2.GetComponent<Rigidbody>().AddForce(new Vector3(0f,0f, 2000f));
                     print("Player2 win");
                 }
 
-                else if (player2?.GetComponent<Player2>().player2Choice != answer)
+                else if (player2Chosen && player2?.GetComponent<Player2>().player2Choice != answer)
                 {
                     //player2 loses 
                     player2.GetComponent<Rigidbody>().AddForce(new Vector3(0f,0f, -2000f));
