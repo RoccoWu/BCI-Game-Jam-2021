@@ -2275,7 +2275,7 @@ MonoBehaviour:
   player2Correct: 0
   player1Turn: 0
   player2Turn: 0
-  gameMath: {fileID: 1998086380}
+  gameMath: {fileID: 0}
   mathQuestion: {fileID: 0}
   answerChoice1: {fileID: 0}
   answerChoice2: {fileID: 0}
@@ -2302,7 +2302,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1998086377}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 720afe03a00143140ac0f3187cddef60, type: 3}
+  m_Script: {fileID: 11500000, guid: bd7d5245fdd29fd41a58d8047e4fc1d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myEquation: 
