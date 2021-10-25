@@ -98,6 +98,7 @@ public class GameManager : MonoBehaviour
             print("choosing");
             if (player1Turn)
             {
+                inRound = true;
                 if (player1Chosen && player1?.GetComponent<Player1>().player1Choice == answer)
                 {
                     //player1 win round
@@ -111,11 +112,12 @@ public class GameManager : MonoBehaviour
                     player1.GetComponent<Rigidbody>().AddForce(new Vector3(0f,0f,-2000f));
                     print("Player1 loses");
                 }
-                isChoosing = false;
+               // isChoosing = false;
             }
 
             else if (player2Turn)
             {
+                inRound = true;
                 if ( player2Chosen && player2?.GetComponent<Player2>().player2Choice == answer)
                 {
                     //player2 win round
@@ -129,7 +131,7 @@ public class GameManager : MonoBehaviour
                     player2.GetComponent<Rigidbody>().AddForce(new Vector3(0f,0f, -2000f));
                     print("Player2 loses");
                 }
-                isChoosing = false;
+                //isChoosing = false;
             }
 
         }

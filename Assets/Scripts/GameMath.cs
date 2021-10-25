@@ -126,6 +126,8 @@ public class GameMath : MonoBehaviour
 
         //Console.WriteLine(" ");
 
+        GameManager.instance.inRound = false;
+
     }
 
     public string GetEquation(string myString)
