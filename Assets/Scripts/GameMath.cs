@@ -6,11 +6,14 @@ using UnityEngine;
 public class GameMath : MonoBehaviour
 {
     public string myEquation, myanswerChoice1, myanswerChoice2, correctAnswer;
+
+    private GameManager gm;
     //private static Math instance;
     // Start is called before the first frame update
     void Start()
     {
-      Main();
+        gm = GameManager.instance;
+        Main();
     }    
 
     public void Main()
@@ -126,7 +129,7 @@ public class GameMath : MonoBehaviour
 
         //Console.WriteLine(" ");
 
-        GameManager.instance.inRound = false;
+        gm.inRound = false;
 
     }
 
