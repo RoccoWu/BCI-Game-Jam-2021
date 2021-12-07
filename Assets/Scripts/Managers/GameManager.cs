@@ -218,6 +218,18 @@ public class GameManager : MonoBehaviour
         }
 
 
+        //Restart the level
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            Scene scene = SceneManager.GetActiveScene(); 
+            SceneManager.LoadScene(scene.name);
+        }
+
+        //Exit the game.
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
 
     }
 
