@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Posh Entertainment
+  companyName: Ma-tug-matics
   productName: Ma-tug-matics
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -136,7 +136,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.2
+  bundleVersion: 1.0
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -272,7 +272,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 2ef9d9ce055279949a4889ebcfc82a56, type: 3}
+      m_Icon: {fileID: 2800000, guid: 17f77fa2a53a5a44eb25d23488ec97dd, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
