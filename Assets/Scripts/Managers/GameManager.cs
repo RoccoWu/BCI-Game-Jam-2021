@@ -60,7 +60,10 @@ public class GameManager : MonoBehaviour
         player1Component = player1?.GetComponent<Player1>();
         player2 = GameObject.FindGameObjectWithTag("Player2");
         player2Component = player2?.GetComponent<Player2>();
-        pauseMenu.GetComponent<CanvasGroup>().alpha = 0;
+        if(SceneManager.GetActiveScene().name == "Game")
+        {
+            pauseMenu.GetComponent<CanvasGroup>().alpha = 0;
+        }        
         //math = gameObject.GetComponent<Math>();
         fadeController?.GetComponent<Animator>().SetBool("canFadeIn", true);
         StartCoroutine(GameStart());

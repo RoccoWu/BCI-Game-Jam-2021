@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
     public float startDelay = 2f;
-    public GameObject credits, tutorial;
+    public GameObject credits, tutorial, tutorialpartOne, tutorialpartTwo;
     public GameObject fade;
     // Start is called before the first frame update
     void Start()
@@ -14,6 +14,8 @@ public class MainMenuManager : MonoBehaviour
         fade.GetComponent<Animator>().SetBool("canFadeIn", true);
         credits.GetComponent<CanvasGroup>().alpha = 0;
         tutorial.GetComponent<CanvasGroup>().alpha = 0;
+        tutorialpartOne.GetComponent<CanvasGroup>().alpha = 0;
+        tutorialpartTwo.GetComponent<CanvasGroup>().alpha = 0;
     }
 
     // Update is called once per frame
@@ -31,7 +33,21 @@ public class MainMenuManager : MonoBehaviour
     public void Tutorial()
     {
         //show tutorial
+        credits.GetComponent<CanvasGroup>().alpha = 0;
         tutorial.GetComponent<CanvasGroup>().alpha = 1;
+        tutorialpartOne.GetComponent<CanvasGroup>().alpha = 1;
+    }
+
+    public void nextTutorial()
+    {
+        tutorialpartOne.GetComponent<CanvasGroup>().alpha = 0;
+        tutorialpartTwo.GetComponent<CanvasGroup>().alpha = 1;
+    }
+
+    public void backTutorial()
+    {
+        tutorialpartTwo.GetComponent<CanvasGroup>().alpha = 0;
+        tutorialpartOne.GetComponent<CanvasGroup>().alpha = 1;
     }
 
     public void closeTutorial()
@@ -42,6 +58,9 @@ public class MainMenuManager : MonoBehaviour
     public void Credits()
     {
         //show credits
+        tutorial.GetComponent<CanvasGroup>().alpha = 0;
+        tutorialpartOne.GetComponent<CanvasGroup>().alpha = 0;
+        tutorialpartTwo.GetComponent<CanvasGroup>().alpha = 0;
         credits.GetComponent<CanvasGroup>().alpha = 1;
     }
 
