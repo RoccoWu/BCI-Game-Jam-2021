@@ -257,10 +257,12 @@ public class GameManager : MonoBehaviour
 
     private void startGame()
     {
-        
-        player1.GetComponent<Animator>()?.SetBool("canPull", true);
-        player2.GetComponent<Animator>()?.SetBool("canPull", true);
-        Debug.Log("rope pulling anim");
+        if(SceneManager.GetActiveScene().name == "Game")
+        {
+            player1.GetComponent<Animator>()?.SetBool("canPull", true);
+            player2.GetComponent<Animator>()?.SetBool("canPull", true);
+            Debug.Log("rope pulling anim");
+        }        
     }
 
     public void Resume()

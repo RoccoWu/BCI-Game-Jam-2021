@@ -13,7 +13,7 @@ public class AudioManager : MonoBehaviour
         instance = this;
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
-
+            mainmenuFadeIn();
         }
 
         if (SceneManager.GetActiveScene().buildIndex == 1)
