@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
     public float startDelay = 2f;
+    public GameObject credits;
     public GameObject fade;
     // Start is called before the first frame update
     void Start()
     {
         fade.GetComponent<Animator>().SetBool("canFadeIn", true);
+        credits.GetComponent<CanvasGroup>().alpha = 0;
     }
 
     // Update is called once per frame
@@ -28,6 +30,17 @@ public class MainMenuManager : MonoBehaviour
     public void Tutorial()
     {
         //show tutorial
+    }
+
+    public void Credits()
+    {
+        //show credits
+        credits.GetComponent<CanvasGroup>().alpha = 1;
+    }
+
+    public void closeCredits()
+    {
+        credits.GetComponent<CanvasGroup>().alpha = 0;
     }
 
     public void QuitGame()
