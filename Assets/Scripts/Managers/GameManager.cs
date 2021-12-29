@@ -39,6 +39,11 @@ public class GameManager : MonoBehaviour
     private Player1 player1Component;
     private string answer = "";
     private bool needPlayerTurnIndicator = false;
+    
+    [Header("Math Vars")]
+    public GameObject pauseMenu;
+    [SerializeField] private bool pauseGame = false;
+
 
     //Handling setting-up the game instance here first and foremost
     private void Awake()
@@ -55,6 +60,7 @@ public class GameManager : MonoBehaviour
         player1Component = player1?.GetComponent<Player1>();
         player2 = GameObject.FindGameObjectWithTag("Player2");
         player2Component = player2?.GetComponent<Player2>();
+        pauseMenu.GetComponent<CanvasGroup>().alpha = 0;
         //math = gameObject.GetComponent<Math>();
         fadeController?.GetComponent<Animator>().SetBool("canFadeIn", true);
         StartCoroutine(GameStart());
@@ -85,12 +91,12 @@ public class GameManager : MonoBehaviour
 
         if (player1Wins)
         {
-            //win state for player 1 
+             SceneManager.LoadScene("Game");
         }
 
         if (player2Wins)
         {
-            //win state for player 2
+             SceneManager.LoadScene("Game");
         }
 
 
@@ -216,16 +222,32 @@ public class GameManager : MonoBehaviour
 
 
         //Restart the level
-        if(Input.GetKeyDown(KeyCode.R))
+       /* if(Input.GetKeyDown(KeyCode.R))
         {
             Scene scene = SceneManager.GetActiveScene(); 
             SceneManager.LoadScene(scene.name);
-        }
+        }*/
 
         //Exit the game.
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
+            //pause
+            switch(pauseGame)
+            {
+                case false:
+                pauseMenu.GetComponent<CanvasGroup>().alpha = 1;
+                Time.timeScale = 0;
+                pauseGame = true;
+                break;
+
+                case true:
+                pauseMenu.GetComponent<CanvasGroup>().alpha = 0;
+                Time.timeScale = 1;
+                pauseGame = false;
+                break;
+
+            }            
+
         }
 
     }
@@ -237,6 +259,23 @@ public class GameManager : MonoBehaviour
         player2.GetComponent<Animator>()?.SetBool("canPull", true);
         Debug.Log("rope pulling anim");
     }
+
+    public void Resume()
+    {
+       pauseMenu.GetComponent<CanvasGroup>().alpha = 0;
+                Time.timeScale = 1;
+                pauseGame = false; 
+    }
+
+    public void ReturntoMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+   public void QuitGame()
+   {
+       Application.Quit();
+   }
 
     IEnumerator ResetGameState()
     {
