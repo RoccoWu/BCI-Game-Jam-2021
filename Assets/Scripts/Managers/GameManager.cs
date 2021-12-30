@@ -275,10 +275,12 @@ public class GameManager : MonoBehaviour
     public void ReturntoMenu()
     {
         SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1;
     }
 
    public void QuitGame()
    {
+       Time.timeScale = 1;
        Application.Quit();
    }
 
