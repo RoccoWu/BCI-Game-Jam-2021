@@ -1429,7 +1429,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 6588a9a664f27084caad61e48dc35088, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6588a9a664f27084caad61e48dc35088, type: 3}
       propertyPath: m_LocalScale.x
@@ -2314,7 +2314,7 @@ Transform:
   - {fileID: 1530587255}
   - {fileID: 739353076}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &732460797
 PrefabInstance:
@@ -3022,7 +3022,7 @@ Transform:
   m_LocalScale: {x: 18.235912, y: 1.8377, z: 6.5390897}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &967708072
 MonoBehaviour:
@@ -4218,8 +4218,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "3. The math problem will appear at the top and the current player has
-    to use buttons \u201C1\u201D and \u201C2\u201D to select the answers that are
-    shown under the question.\r\n"
+    to use keys \u201C1\u201D and \u201C2\u201D on the keyboard to select one of
+    the answers shown under the question.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d1a1ce280d615a046b2067c791086a43, type: 2}
   m_sharedMaterial: {fileID: 5577835309023788979, guid: d1a1ce280d615a046b2067c791086a43, type: 2}
